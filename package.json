@@ -1,0 +1,20 @@
+{
+  "name": "lfg_prototype",
+  "version": "0.1.0",
+  "description": "lfg zone train board",
+  "main": "index.js",
+  "author": "Gail Terman",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "dependencies": {
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
+  "devDependencies": {
+    "parcel": "^1.12.3"
+  }
+}
