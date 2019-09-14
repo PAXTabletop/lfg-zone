@@ -1,2 +1,2 @@
 body{margin:0}.game .table,.game .time{float:left;margin-right:20px}.game .table{padding:0 10px;border:1px solid #fff}.game .close{float:right;padding-right:10px}.game{width:100%;color:#fff;padding:3px;border-bottom:2px solid #000}li:nth-child(3n) .game{background:red}li:nth-child(3n+1) .game{background:green}li:nth-child(3n+2) .game{background:#00f}li:last-child .game{border-bottom:0}ul{list-style-type:none;margin:0;padding:0}.root{width:100%}.container{display:flex;width:100%;flex:1}.game-form,.game-list{width:100%}.game-form{margin-left:50px}form label{display:block}
-/*# sourceMappingURL=/src.5f9d1984.css.map */
+/*# sourceMappingURL=/lfg-zone-poc/src.5f9d1984.css.map */
