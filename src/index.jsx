@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Countdown from 'react-countdown-now';
 import './index.css';
 
 function GameDeleteButton ({callback}) {
@@ -12,7 +13,7 @@ function Game ({title, time, table, deleteCallback}) {
     return (
         <div className='game'>
             <span className='title'>{title}</span>
-            <div className='time'>{time}</div>
+            <div className='time'><Countdown date={time} /></div>
             <div className='table'>{table}</div>
             <GameDeleteButton callback={deleteCallback} />
         </div>
@@ -33,7 +34,8 @@ function GameList ({games, deleteCallback}) {
 class AddGameForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {title: '', time: '', table: ''};
+        this.defaultTime = 5
+        this.state = {title: '', time: this.defaultTime, table: ''};
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -42,7 +44,7 @@ class AddGameForm extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
         this.props.addGame(this.state)
-        this.setState({title: '', time: '', table: ''});
+        this.setState({title: '', time: this.defaultTime, table: ''});
     }
 
     handleChange(event) {
@@ -58,8 +60,8 @@ class AddGameForm extends React.Component {
                 <input type="text" name="title" value={this.state.title} onChange={this.handleChange} />
             </label>
             <label>
-                Game Start Time:
-                <input type="text" name="time" value={this.state.time} onChange={this.handleChange} />
+                Minutes From Now:
+                <input type="number" name="time" value={this.state.time} onChange={this.handleChange} />
             </label>
             <label>
                 Table Number:
@@ -72,8 +74,8 @@ class AddGameForm extends React.Component {
 }
 
 const fakeGames = [
-    {title: 'Game A', time: '5:30', table: '3'},
-    {title: 'Game B', time: '5:45', table: '8'}
+    {title: 'Game A', time: Date.now() + 3 * 60000, table: '3'},
+    {title: 'Game B', time: Date.now() + 10 * 60000, table: '8'}
 ]
 
 class App extends React.Component {
@@ -95,6 +97,7 @@ class App extends React.Component {
     addGame ({title, time, table}) {
         console.log(`game added: ${title} at table ${table} starting at ${time}`);
         const newGames = this.state.games.map(g => g);
+        time = Date.now() + time * 60000;
         newGames.push({title, time, table});
         this.setState({games: newGames});
     }
