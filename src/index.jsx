@@ -57,15 +57,15 @@ class AddGameForm extends React.Component {
         return ( <form onSubmit={this.handleSubmit}>
             <label>
                 Game Title
-                <input type="text" name="title" value={this.state.title} onChange={this.handleChange} />
+                <input required="true" type="text" name="title" value={this.state.title} onChange={this.handleChange} />
             </label>
             <label>
                 Wait Time
-                <input type="number" name="time" value={this.state.time} onChange={this.handleChange} />
+                <input required="true" type="number" name="time" value={this.state.time} onChange={this.handleChange} />
             </label>
             <label>
                 Table #
-                <input type="text" name="table" value={this.state.table} onChange={this.handleChange} />
+                <input required="true" type="text" name="table" value={this.state.table} onChange={this.handleChange} />
             </label>
             <input className="submitBtn" type="submit" value="Submit" />
         </form>);
