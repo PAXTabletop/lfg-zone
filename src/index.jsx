@@ -13,8 +13,8 @@ function Game ({title, time, table, deleteCallback}) {
     return (
         <div className='game'>
             <span className='title'>{title}</span>
-            <div className='time'><Countdown date={time} /></div>
             <div className='table'>{table}</div>
+            <div className='time'><Countdown date={time} /></div>
             <GameDeleteButton callback={deleteCallback} />
         </div>
     );
@@ -56,18 +56,18 @@ class AddGameForm extends React.Component {
     render() {
         return ( <form onSubmit={this.handleSubmit}>
             <label>
-                Game Title:
+                Game Title
                 <input type="text" name="title" value={this.state.title} onChange={this.handleChange} />
             </label>
             <label>
-                Minutes From Now:
+                Wait Time
                 <input type="number" name="time" value={this.state.time} onChange={this.handleChange} />
             </label>
             <label>
-                Table Number:
+                Table #
                 <input type="text" name="table" value={this.state.table} onChange={this.handleChange} />
             </label>
-            <input type="submit" value="Submit" />
+            <input className="submitBtn" type="submit" value="Submit" />
         </form>);
     }
 
