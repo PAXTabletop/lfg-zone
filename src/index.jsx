@@ -61,7 +61,7 @@ class AddGameForm extends React.Component {
             </label>
             <label>
                 Wait Time
-                <input required="true" type="number" name="time" value={this.state.time} onChange={this.handleChange} />
+                <input required="true" type="number" min="1" name="time" value={this.state.time} onChange={this.handleChange} />
             </label>
             <label>
                 Table #
