@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <th>Game Title</th>
+    <th>Time Left</th>
+    <th class="text-center">Table #</th>
+    {{#if admin}}<th>Remove</th>{{/if}}
+  </tr>
+  {{#each @games as | game |}}
+    <tr>
+      <td>{{game.title}}</td>
+      <td>{{countdown-string startDate=game.time}}</td>
+      <td class="text-center">{{game.table}}</td>
+      {{#if admin}}<td class="text-center"><button>&times;</button></td>{{/if}}
+    </tr>
+  {{/each}}
+</table>

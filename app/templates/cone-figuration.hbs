@@ -1,0 +1,17 @@
+<p class="text-center">CONFIGURE CONES HERE</p>
+<form class="flex">
+  <label>
+    <div>Title</div>
+    {{input value=title required=true}}
+  </label>
+  <label>
+    <div>Time</div>
+    {{input value=time required=true type="number" min="1"}}
+  </label>
+  <label>
+    <div>Table</div>
+    {{input value=table required=true}}
+  </label>
+  <button type="submit">Add Game</button>
+</form>
+<GameList @games={{model}} @admin={{true}} />
