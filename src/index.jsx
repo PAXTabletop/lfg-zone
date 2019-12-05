@@ -3,6 +3,18 @@ import ReactDOM from 'react-dom';
 import Countdown from 'react-countdown-now';
 import './index.css';
 
+import {createLogger, transports, format} from 'winston';
+const logger = createLogger({
+  level: 'info',
+  format: format.combine(
+    format.json(),
+    format.timestamp()
+),
+  transports: [
+    new transports.File({ filename: 'lfg_zone.log', level: 'debug' })
+  ]
+});
+
 function GameDeleteButton ({callback}) {
     return (
         <span className='close' onClick={callback}>&times;</span>
@@ -89,6 +101,7 @@ class App extends React.Component {
 
     gameDeleteCallback (idx) {
         console.log(`game delete clicked for ${idx}`);
+        logger.log('info', `game delete clicked for ${idx}`);
         const newGames = this.state.games.map(g => g);
         newGames.splice(idx, 1);
         this.setState({games: newGames});
@@ -96,6 +109,7 @@ class App extends React.Component {
 
     addGame ({title, time, table}) {
         console.log(`game added: ${title} at table ${table} starting at ${time}`);
+        logger.log('info',`game added: ${title} at table ${table} starting at ${time}`);
         const newGames = this.state.games.map(g => g);
         time = Date.now() + time * 60000;
         newGames.push({title, time, table});
