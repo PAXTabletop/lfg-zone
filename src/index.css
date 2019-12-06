@@ -20,11 +20,15 @@ body {
     margin-right: 20px;
 }
 
-.game .table {
+.game .table, .game .players {
     background: white;
     border: 1px solid #ccc;
     margin-right: 20px;
     padding: 0 10px;
+}
+
+.game .table {
+    width: 40px;
 }
 
 .game .close {

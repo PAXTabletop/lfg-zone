@@ -12,7 +12,7 @@ function GameDeleteButton ({callback}) {
 
 function Game ({title, time, table, players, deleteCallback}) {
     const players_box = players
-        ? <div className='table'>Players: {players}</div>
+        ? <div className='players'>Players: {players}</div>
         : ''
     return (
         <div className='game'>
